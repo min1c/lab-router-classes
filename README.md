@@ -21,7 +21,7 @@ This lab aims to apply the basics of:
 
     b. The second route will render the <Home> component if the path is "/"
 
-## In FilmClass.js:
+## In FilmsClass.js:
 
 1. Add state variables for "films" and "id"
 
