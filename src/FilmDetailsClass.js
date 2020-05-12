@@ -48,10 +48,10 @@ export class FilmDetails extends React.Component {
     
     return (
       <>
-        <h4 className="display-4">{film.title ? film.title : "Part 3 Incomplete"}</h4>
+        <h4 className="display-4">{ !this.state ? "Part 3 Incomplete" : film.title ? film.title : ""}</h4>
         <br/>
         <Row as="dl">
-          { filmElements.length > 0 ? filmElements : C.INCOMPLETE_3_FULL }
+          { !this.state ? C.INCOMPLETE_3_FULL : filmElements.length > 0 ? filmElements : <></> }
         </Row>
       </>
     );
