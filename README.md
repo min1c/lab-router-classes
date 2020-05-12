@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lab: Router (Classes)
 
-## Available Scripts
+This lab aims to apply the basics of:
 
-In the project directory, you can run:
+- event-binding
+- state
+- lifecycle methods
+- routing
 
-### `npm start`
+## In App.js:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Modify the behaviour of the Navbar.Brand and Nav.Link elements to behave as a react-router <NavLink>.  
+    
+    - Using <NavLink> will not trigger a full page refresh when navigating within a router.
+    
+    - Hint: Use 'as' attribute
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2. Replace the current <Home> return with two <Route> components within a <Switch> component
+    
+    a. The first route will render the <Films> component if the path is "/films"
 
-### `npm test`
+    b. The second route will render the <Home> component if the path is "/"
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## In FilmClass.js:
 
-### `npm run build`
+1. Add state variables for "films" and "id"
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Add a lifecycle method which fetches the films and sets the films state upon first time loading
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+3. Get the match object in the render method
+    - Add a "to" property to the ListGroup.Item elements to link to the film details. Use the match object and film.id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Replace { C.INCOMPLETE_2_FULL } with two <Route> components within a <Switch> component
 
-### `npm run eject`
+    a. The first route will render the <FilmDetails> component if the path is exactly the match path + "/:id"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    b. The second route will render { C.SELECT_FILM } if the path is the match path
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Add an event handler to the class
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    a. It should accept selectedId and set the "id" state to selectedId
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    b. Pass it as a prop called onIdChange to the FilmDetails component in the route you created in the previous step
 
-## Learn More
+    c. Add a "className" property to the ListGroup.Item elements that will conditionally set the class to "active" or "" depending if the state id matches the element's film.id
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## In FilmDetailsClass.js:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Add state variables for "film" and "filmChildren"
 
-### Code Splitting
+2. Add lifecycle methods:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    a. Get "id" parameter from the match object
 
-### Analyzing the Bundle Size
+    b. Fetch the film and set the film state:
+    
+    - upon first time loading
+    
+    - when id is different than previous id
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    c. Generate the film children and set the filmChildren state:
+when film state is different from previous film state
 
-### Making a Progressive Web App
+3. Add an event handler to the class
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+    a. It should accept id and pass it to the callback provided in the props by the parent
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    b. This event handler should be called upon first time loading and when id is different than previous id
