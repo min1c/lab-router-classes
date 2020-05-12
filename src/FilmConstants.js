@@ -40,7 +40,7 @@ export const INCOMPLETE_1_HTML = (
 
 export const INCOMPLETE_2_HTML = (
   <>
-    <li>In <strong>FilmClass.js</strong>:</li>
+    <li>In <strong>FilmsClass.js</strong>:</li>
     <ol>
       <li>{`Add state variables for "films" and "id"`}</li>
       <li>{`Add a lifecycle method which fetches the films and sets the films state upon first time loading`}</li>
