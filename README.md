@@ -28,6 +28,7 @@ This lab aims to apply the basics of:
 2. Add a lifecycle method which fetches the films and sets the films state upon first time loading
 
 3. Get the match object in the render method
+
     - Add a "to" property to the ListGroup.Item elements to link to the film details. Use the match object and film.id
 
 4. Replace { C.INCOMPLETE_2_FULL } with two <Route> components within a <Switch> component
@@ -59,7 +60,8 @@ This lab aims to apply the basics of:
     - when id is different than previous id
 
     c. Generate the film children and set the filmChildren state:
-when film state is different from previous film state
+    
+    - when film state is different from previous film state
 
 3. Add an event handler to the class
 
